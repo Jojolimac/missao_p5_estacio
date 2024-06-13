@@ -19,21 +19,21 @@ my_file.close()
 
 #Recuperando Dados
 lista_recuperada = []
-my_file = open('lista.txt')
-for line in my_file:
+arquivo = open('lista.txt')
+for line in arquivo:
     lista_recuperada.append(line)
 
 #Separando Dados
-notas = []
+lista_notas = []
 for item in lista_recuperada:
     nome, nota = eval(item)
-    notas.append(nota)
+    lista_notas.append(nota)
     
 #Criando Histograma
 import matplotlib.pyplot as plt
 
 num_bins = 10
-plt.hist(notas, num_bins, density=True, facecolor = 'green', 
+plt.hist(lista_notas, num_bins, density=True, facecolor = 'green', 
          alpha = 0.75)
 
 plt.xlabel('Pontuações')
@@ -45,7 +45,7 @@ plt.show()
 #Convertendo Números
 from num2words import num2words
 lista_convertida = []
-for item in notas:
+for item in lista_notas:
     lista_convertida.append(num2words(item, lang='pt-br'))
 
 #Criando Nuvem de Palavras
